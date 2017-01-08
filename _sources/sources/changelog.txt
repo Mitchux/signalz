@@ -1,0 +1,13 @@
+.. _changelog:
+
+Changelog
+===========
+
+**Version 0.1**
+ First release featuring the following signal generators:
+ :ref:`generators-autoregressive_model`,
+ :ref:`generators-mackey_glass`,
+ :ref:`generators-sinus` and
+ :ref:`generators-white_noise`
+
+

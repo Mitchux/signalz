@@ -1,0 +1,12 @@
+.. Signalz documentation master file
+
+
+
+Signalz
+===================
+*Signalz - data generators in Python*
+
+.. automodule:: signalz
+
+
+
