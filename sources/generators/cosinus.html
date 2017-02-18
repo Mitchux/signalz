@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Sinus Waves &#8212; Signalz 0.2 documentation</title>
+    <title>Cosinus Waves &#8212; Signalz 0.2 documentation</title>
     
     <link rel="stylesheet" href="../../_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -25,8 +25,8 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Signalz 0.2 documentation" href="../../index.html" />
-    <link rel="next" title="White Noise Generator" href="white_noise.html" />
-    <link rel="prev" title="Mackey-Glass Discrete Equation" href="mackey_glass.html" />
+    <link rel="next" title="Mackey-Glass Discrete Equation" href="mackey_glass.html" />
+    <link rel="prev" title="Autoregressive Model" href="autoregressive_model.html" />
     <meta name="description" content="Signalz - data generators in Python">
     <meta name="keywords" content="signal, data, generator, python">
     <script>
@@ -44,43 +44,43 @@
   <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="../../index.html">
           <span>Signalz 0.2 documentation</span></a></h1>
-        <h2 class="heading"><span>Sinus Waves</span></h2>
+        <h2 class="heading"><span>Cosinus Waves</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
-        «&#160;&#160;<a href="mackey_glass.html">Mackey-Glass Discrete Equation</a>
+        «&#160;&#160;<a href="autoregressive_model.html">Autoregressive Model</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="../../index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="white_noise.html">White Noise Generator</a>&#160;&#160;»
+        <a href="mackey_glass.html">Mackey-Glass Discrete Equation</a>&#160;&#160;»
         </p>
 
       </div>
       <div class="content">
         
         
-  <div class="section" id="module-signalz.generators.sinus">
-<span id="sinus-waves"></span><span id="generators-sinus"></span><h1>Sinus Waves<a class="headerlink" href="#module-signalz.generators.sinus" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-signalz.generators.cosinus">
+<span id="cosinus-waves"></span><span id="generators-cosinus"></span><h1>Cosinus Waves<a class="headerlink" href="#module-signalz.generators.cosinus" title="Permalink to this headline">¶</a></h1>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 0.1.</span></p>
+<p><span class="versionmodified">New in version 0.2.</span></p>
 </div>
-<p>This function generates sinus waves with given period, amplitude and offset.
+<p>This function generates cosinus waves with given period, amplitude and offset.
 It is also possible to use delay defined in samples to crop the first wave.</p>
 <div class="section" id="example-usage">
 <h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
 <p>Simple example</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># number of samples</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">signalz</span><span class="o">.</span><span class="n">sinus</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">signalz</span><span class="o">.</span><span class="n">cosinus</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="function-documentation">
 <h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="signalz.generators.sinus.sinus">
-<code class="descclassname">signalz.generators.sinus.</code><code class="descname">sinus</code><span class="sig-paren">(</span><em>n</em>, <em>period=100</em>, <em>amplitude=2</em>, <em>offset=0</em>, <em>delay=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/signalz/generators/sinus.html#sinus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#signalz.generators.sinus.sinus" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sinus waves generator.</p>
+<dt id="signalz.generators.cosinus.cosinus">
+<code class="descclassname">signalz.generators.cosinus.</code><code class="descname">cosinus</code><span class="sig-paren">(</span><em>n</em>, <em>period=100</em>, <em>amplitude=2</em>, <em>offset=0</em>, <em>delay=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/signalz/generators/cosinus.html#cosinus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#signalz.generators.cosinus.cosinus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cosinus waves generator.</p>
 <p><strong>Args:</strong></p>
 <ul class="simple">
 <li><cite>n</cite> - length of the output data (int) - how many samples will be on output</li>
@@ -95,7 +95,7 @@ influence full length of data)</li>
 </ul>
 <p><strong>Returns:</strong></p>
 <ul class="simple">
-<li>vector of sinus waves (1d array)</li>
+<li>vector of cosinus waves (1d array)</li>
 </ul>
 </dd></dl>
 
@@ -107,11 +107,11 @@ influence full length of data)</li>
       <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
-        «&#160;&#160;<a href="mackey_glass.html">Mackey-Glass Discrete Equation</a>
+        «&#160;&#160;<a href="autoregressive_model.html">Autoregressive Model</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="../../index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="white_noise.html">White Noise Generator</a>&#160;&#160;»
+        <a href="mackey_glass.html">Mackey-Glass Discrete Equation</a>&#160;&#160;»
         </p>
 
       </div>

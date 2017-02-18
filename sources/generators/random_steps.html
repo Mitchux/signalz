@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Random Steps &#8212; Signalz 0.2 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Signalz 0.2 documentation" href="../../index.html" />
+    <link rel="next" title="Sinus Waves" href="sinus.html" />
+    <link rel="prev" title="Mackey-Glass Discrete Equation" href="mackey_glass.html" />
+    <meta name="description" content="Signalz - data generators in Python">
+    <meta name="keywords" content="signal, data, generator, python">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-73796119-7', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+  </head>
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="../../index.html">
+          <span>Signalz 0.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Random Steps</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="mackey_glass.html">Mackey-Glass Discrete Equation</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="sinus.html">Sinus Waves</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="module-signalz.generators.random_steps">
+<span id="random-steps"></span><span id="generators-random-steps"></span><h1>Random Steps<a class="headerlink" href="#module-signalz.generators.random_steps" title="Permalink to this headline">¶</a></h1>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.2.</span></p>
+</div>
+<p>This function generates random steps according to given width of steps and
+desired number of steps.</p>
+<div class="section" id="example-usage">
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
+<p>Simplest example (10 steps with width 50 samples, normal distribution
+with unit standard deviation and zero mean) follows.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">signalz</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">signalz</span><span class="o">.</span><span class="n">random_steps</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>More complicated example with normal distribution (standard deviation and
+mean value is changed) follows.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">signalz</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">signalz</span><span class="o">.</span><span class="n">random_steps</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">mean</span><span class="o">=-</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Another example, this time with uniform distribution - values in range from 10
+to 20.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">signalz</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">signalz</span><span class="o">.</span><span class="n">random_steps</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s2">&quot;uniform&quot;</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-documentation">
+<h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="signalz.generators.random_steps.random_steps">
+<code class="descclassname">signalz.generators.random_steps.</code><code class="descname">random_steps</code><span class="sig-paren">(</span><em>steps_count</em>, <em>step_width</em>, <em>distribution='normal'</em>, <em>maximum=1</em>, <em>minimum=0</em>, <em>std=1</em>, <em>mean=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/signalz/generators/random_steps.html#random_steps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#signalz.generators.random_steps.random_steps" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function generates random steps.</p>
+<p><strong>Args:</strong></p>
+<ul class="simple">
+<li><cite>steps_count</cite> - desired number steps (int)</li>
+<li><cite>step_width</cite> - desired width of every step (int)</li>
+</ul>
+<p><strong>Kwargs:</strong></p>
+<ul class="simple">
+<li><cite>repeat</cite> - number of step sequence repetions (int)</li>
+<li><cite>distribution</cite> - distribution of random numbers (str), Options are
+<cite>normal</cite> and <cite>uniform</cite>.</li>
+<li><cite>maximum</cite> - maximal value for steps (float), this value is used
+in case of uniform distribution.</li>
+<li><cite>minimum</cite> - minimal value for steps (float), this value is used
+in case of uniform distribution.</li>
+<li><cite>std</cite> - standard deviation of random variable (float), this value
+is used in case of normal distribution.</li>
+<li><cite>mean</cite> - mean value of random variable (float), this value
+is used in case of normal distribution.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul class="simple">
+<li><cite>x</cite> - array of values describing desired steps (1d array)</li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="mackey_glass.html">Mackey-Glass Discrete Equation</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="../../index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="sinus.html">Sinus Waves</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2017, Matous C.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>

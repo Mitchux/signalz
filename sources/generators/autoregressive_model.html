@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Autoregressive Model &#8212; Signalz 0.1 documentation</title>
+    <title>Autoregressive Model &#8212; Signalz 0.2 documentation</title>
     
     <link rel="stylesheet" href="../../_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.1',
+        VERSION:     '0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Signalz 0.1 documentation" href="../../index.html" />
+    <link rel="top" title="Signalz 0.2 documentation" href="../../index.html" />
     <link rel="next" title="Mackey-Glass Discrete Equation" href="mackey_glass.html" />
     <link rel="prev" title="Signalz" href="../../index.html" />
     <meta name="description" content="Signalz - data generators in Python">
@@ -43,7 +43,7 @@
   </head>
   <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="../../index.html">
-          <span>Signalz 0.1 documentation</span></a></h1>
+          <span>Signalz 0.2 documentation</span></a></h1>
         <h2 class="heading"><span>Autoregressive Model</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
@@ -65,6 +65,9 @@
 <div class="versionadded">
 <p><span class="versionmodified">New in version 0.1.</span></p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified">Changed in version 0.2.</span></p>
+</div>
 <p>This function generates data as autoregressive model (AR model) according to
 following equation</p>
 <p><span class="math">\(x(k) = c + \sum\limits_{n=1}^{\infty} a_{i} x(k-i) + v(k)\)</span>,</p>
@@ -75,8 +78,10 @@ following equation</p>
 <h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
 <p>Let us consider AR model as follows</p>
 <p><span class="math">\(x(k) = 1.79 x(k-1) - 1.85 x(k-2) + 1.27 x(k-3) - 0.41 x(k-4) + v(k)\)</span>.</p>
-<p>This AR can be simulated with following code (1000 samples)</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># AR model parameters</span>
+<p>This AR can be simulated with following code (1000 samples).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">signalz</span>
+
+<span class="c1"># AR model parameters</span>
 <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.41</span><span class="p">,</span> <span class="mf">1.27</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.85</span><span class="p">,</span> <span class="mf">1.79</span><span class="p">]</span>
 
 <span class="c1"># number of samples</span>
@@ -84,6 +89,27 @@ following equation</p>
 
 <span class="c1"># get AR data</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">signalz</span><span class="o">.</span><span class="n">autoregressive_model</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The next example shows, how to introduce parameter changes during the data
+generation.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">signalz</span>
+
+<span class="c1"># number of samples</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="c1"># AM model default parameters</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.41</span><span class="p">,</span> <span class="mf">1.27</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.85</span><span class="p">,</span> <span class="mf">1.79</span><span class="p">]</span>
+
+<span class="c1"># parameters for all samples</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">a</span>
+
+<span class="c1"># change of parameters starting from time index 500</span>
+<span class="n">A</span><span class="p">[</span><span class="mi">500</span><span class="p">:]</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span><span class="p">])</span>
+
+<span class="c1"># get AR data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">signalz</span><span class="o">.</span><span class="n">autoregressive_model</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -96,7 +122,9 @@ following equation</p>
 <p><strong>Args:</strong></p>
 <ul class="simple">
 <li><cite>n</cite> - length of the output data (int) - how many samples will be on output</li>
-<li><cite>a</cite> - coefficients of the model (1d array),</li>
+<li><cite>a</cite> - coefficients of the model (1d array, 2d array), in case of a vector
+are used the same parameters for whole generation. In case of a matrix,
+every row represents parameters for one time sample.</li>
 </ul>
 <p><strong>Kwargs:</strong></p>
 <ul class="simple">
@@ -134,7 +162,7 @@ possible options are:<ul>
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2017, Matous C.
+        &#169; Copyright 2016-2017, Matous C.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
     </div>
   </body>

@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>signalz.generators.steps &#8212; Signalz 0.2 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Signalz 0.2 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+    <meta name="description" content="Signalz - data generators in Python">
+    <meta name="keywords" content="signal, data, generator, python">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-73796119-7', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+  </head>
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="../../../index.html">
+          <span>Signalz 0.2 documentation</span></a></h1>
+        <h2 class="heading"><span>signalz.generators.steps</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        <a class="uplink" href="../../../index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <h1>Source code for signalz.generators.steps</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. versionadded:: 0.2</span>
+
+<span class="sd">This function generates steps according to given sequence of values and</span>
+<span class="sd">given width of steps. Function also can repeat given</span>
+<span class="sd">sequence of steps.</span>
+
+<span class="sd">Example Usage</span>
+<span class="sd">==================</span>
+
+<span class="sd">Usage is as simple as</span>
+
+<span class="sd">.. code-block:: python</span>
+
+<span class="sd">    import signalz</span>
+<span class="sd">    x = signalz.steps(2, [1, 2, 3], repeat=2)</span>
+<span class="sd">    </span>
+<span class="sd">where the `2` stands for step width, `[1, 2, 3]` are values for steps and</span>
+<span class="sd">`repeat=2` make the sequence of steps repeat twice. So the returned output is</span>
+
+<span class="sd">&gt;&gt;&gt; [1 1 2 2 3 3 1 1 2 2 3 3]</span>
+
+
+<span class="sd">Function Documentation</span>
+<span class="sd">======================================</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<div class="viewcode-block" id="steps"><a class="viewcode-back" href="../../../sources/generators/steps.html#signalz.generators.steps.steps">[docs]</a><span class="k">def</span> <span class="nf">steps</span><span class="p">(</span><span class="n">step_width</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function generates steps from given values.</span>
+<span class="sd">    </span>
+<span class="sd">    **Args:**</span>
+<span class="sd">    </span>
+<span class="sd">    * `step_width` - desired width of every step (int)</span>
+<span class="sd">    </span>
+<span class="sd">    * `values` - values for steps (1d array) </span>
+<span class="sd">    </span>
+<span class="sd">    **Kwargs:**</span>
+<span class="sd">         </span>
+<span class="sd">    * `repeat` - number of step sequence repetions (int)</span>
+<span class="sd">    </span>
+<span class="sd">    **Returns:**</span>
+<span class="sd">    </span>
+<span class="sd">    * `x` - array of values describing desired steps (1d array)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">step_width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">step_width</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Step widht must be an int.&#39;</span><span class="p">)</span> 
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">repeat</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">repeat</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Repeat arg must be an int.&#39;</span><span class="p">)</span> 
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Values must be a numpy array or similar.&#39;</span><span class="p">)</span> 
+    <span class="c1"># generate steps</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">step_width</span><span class="p">)</span>  
+    <span class="c1"># repeat if needed  </span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">repeat</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span></div>
+
+
+
+
+
+</pre></div>
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        <a class="uplink" href="../../../index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2017, Matous C.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>
