@@ -1,7 +1,7 @@
 .. _generators-autoregressive_model:
 
-Autoregressive Model
-********************************
+Autoregressive Model 
+***********************
 
 .. automodule:: signalz.generators.autoregressive_model
     :members:

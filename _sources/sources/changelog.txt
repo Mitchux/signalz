@@ -3,6 +3,10 @@
 Changelog
 ===========
 
+**Version 0.3**
+ Logistic map was added :ref:`generators-logistic_map`. Furthermore
+ the documentation was upgraded.
+
 **Version 0.2**
  New generators were added:
  :ref:`generators-random_steps`,
@@ -10,13 +14,13 @@ Changelog
  :ref:`generators-cosinus`
  and following generators were upgraded:
  :ref:`generators-autoregressive_model`,
- :ref:`generators-mackey_glass`,
+ :ref:`generators-mackey_glass`.
 
 **Version 0.1**
  First release featuring the following signal generators:
  :ref:`generators-autoregressive_model`,
  :ref:`generators-mackey_glass`,
  :ref:`generators-sinus` and
- :ref:`generators-white_noise`
+ :ref:`generators-white_noise`.
 
 

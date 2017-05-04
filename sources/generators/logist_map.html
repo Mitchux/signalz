@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Steps &#8212; Signalz 0.3 documentation</title>
+    <title>Logistic Map &#8212; Signalz 0.3 documentation</title>
     
     <link rel="stylesheet" href="../../_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -43,7 +43,7 @@
   <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="../../index.html">
           <span>Signalz 0.3 documentation</span></a></h1>
-        <h2 class="heading"><span>Steps</span></h2>
+        <h2 class="heading"><span>Logistic Map</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
       
@@ -55,45 +55,46 @@
       <div class="content">
         
         
-  <div class="section" id="module-signalz.generators.steps">
-<span id="steps"></span><span id="generators-steps"></span><h1>Steps<a class="headerlink" href="#module-signalz.generators.steps" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-signalz.generators.logistic_map">
+<span id="logistic-map"></span><span id="generators-logistic-map"></span><h1>Logistic Map<a class="headerlink" href="#module-signalz.generators.logistic_map" title="Permalink to this headline">¶</a></h1>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 0.2.</span></p>
+<p><span class="versionmodified">New in version 0.3.</span></p>
 </div>
-<p>This function generates steps according to given sequence of values and
-given width of steps. Function also can repeat given
-sequence of steps.</p>
+<p>This function simulates logistic map equation. This logisti map is described
+by following equation</p>
+<p><span class="math">\(x(k+1) = r x(k) (1 - x(k))\)</span>,</p>
+<p>where <span class="math">\(x\)</span> is population (between 0 and 1) and <span class="math">\(x\)</span> is parameter
+denoted as value of interest.</p>
+<p>The logistic map can result in logistic behaviour for some values of <span class="math">\(r\)</span>.</p>
+<p>For more information see great page about
+<a class="reference external" href="https://en.wikipedia.org/wiki/Logistic_map">logistic map on Wikipedia</a></p>
 <div class="section" id="example-usage">
 <h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
-<p>Usage is as simple as</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">signalz</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">signalz</span><span class="o">.</span><span class="n">steps</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>where the <cite>2</cite> stands for step width, <cite>[1, 2, 3]</cite> are values for steps and
-<cite>repeat=2</cite> make the sequence of steps repeat twice. So the returned output is</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">3</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">]</span>
+<p>Simple example</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># number of samples</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">signalz</span><span class="o">.</span><span class="n">logistic_map</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="function-documentation">
 <h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="signalz.generators.steps.steps">
-<code class="descclassname">signalz.generators.steps.</code><code class="descname">steps</code><span class="sig-paren">(</span><em>step_width</em>, <em>values</em>, <em>repeat=1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/signalz/generators/steps.html#steps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#signalz.generators.steps.steps" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function generates steps from given values.</p>
+<dt id="signalz.generators.logistic_map.logistic_map">
+<code class="descclassname">signalz.generators.logistic_map.</code><code class="descname">logistic_map</code><span class="sig-paren">(</span><em>n</em>, <em>r=4</em>, <em>initial=0.5</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/signalz/generators/logistic_map.html#logistic_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#signalz.generators.logistic_map.logistic_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logist map equation</p>
 <p><strong>Args:</strong></p>
 <ul class="simple">
-<li><cite>step_width</cite> - desired width of every step (int)</li>
-<li><cite>values</cite> - values for steps (1d array)</li>
+<li><cite>n</cite> - length of the output data (int) - how many samples will be on output</li>
 </ul>
 <p><strong>Kwargs:</strong></p>
 <ul class="simple">
-<li><cite>repeat</cite> - number of step sequence repetions (int)</li>
+<li><cite>r</cite> - function parameter (float)</li>
+<li><cite>initial</cite> - initial value (float), default is 0.1,
+should be in range from 0 to 1</li>
 </ul>
 <p><strong>Returns:</strong></p>
 <ul class="simple">
-<li><cite>x</cite> - array of values describing desired steps (1d array)</li>
+<li>simulation output - vector of numbers between 0 and 1</li>
 </ul>
 </dd></dl>
 

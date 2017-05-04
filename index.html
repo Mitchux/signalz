@@ -6,15 +6,16 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Signalz &#8212; Signalz 0.2 documentation</title>
+    <title>Signalz &#8212; Signalz 0.3 documentation</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.2',
+        VERSION:     '0.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,8 +25,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Signalz 0.2 documentation" href="#" />
-    <link rel="next" title="Autoregressive Model" href="sources/generators/autoregressive_model.html" />
+    <link rel="top" title="Signalz 0.3 documentation" href="#" />
     <meta name="description" content="Signalz - data generators in Python">
     <meta name="keywords" content="signal, data, generator, python">
     <script>
@@ -42,15 +42,13 @@
   </head>
   <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="#">
-          <span>Signalz 0.2 documentation</span></a></h1>
+          <span>Signalz 0.3 documentation</span></a></h1>
         <h2 class="heading"><span>Signalz</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
         <a class="uplink" href="#">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="sources/generators/autoregressive_model.html">Autoregressive Model</a>&#160;&#160;»
         </p>
 
       </div>
@@ -60,7 +58,7 @@
   <div class="section" id="signalz">
 <h1>Signalz<a class="headerlink" href="#signalz" title="Permalink to this headline">¶</a></h1>
 <p><em>Signalz - data generators in Python</em></p>
-<span class="target" id="module-signalz"></span><p>Current version: 0.2 (<a class="reference internal" href="sources/changelog.html#changelog"><span class="std std-ref">Changelog</span></a>)</p>
+<span class="target" id="module-signalz"></span><p>Current version: 0.3 (<a class="reference internal" href="sources/changelog.html#changelog"><span class="std std-ref">Changelog</span></a>)</p>
 <p>This library is designed to simplify testing data obtaining with Python.
 For code optimisation,
 this library uses <a class="reference external" href="http://www.numpy.org/">Numpy</a> for array operations.</p>
@@ -91,17 +89,38 @@ this library uses <a class="reference external" href="http://www.numpy.org/">Num
 <div class="section" id="the-user-quide">
 <h2>The User Quide<a class="headerlink" href="#the-user-quide" title="Permalink to this headline">¶</a></h2>
 <p>Here is complete documentation for all implemented functions.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="sources/generators/autoregressive_model.html">Autoregressive Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sources/generators/cosinus.html">Cosinus Waves</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sources/generators/mackey_glass.html">Mackey-Glass Discrete Equation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sources/generators/random_steps.html">Random Steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sources/generators/sinus.html">Sinus Waves</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sources/generators/steps.html">Steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sources/generators/white_noise.html">White Noise Generator</a></li>
+<ul class="funcitem simple">
+<li><a class="reference internal" href="sources/generators/sinus.html#generators-sinus"><span class="std std-ref">Sinus Waves</span></a></li>
 </ul>
-</div>
+<p class="functag"><a class="reference internal" href="sources/tags/goniometric.html#tags-goniometric"><span class="std std-ref">Goniometric</span></a></p>
+<ul class="funcitem simple">
+<li><a class="reference internal" href="sources/generators/cosinus.html#generators-cosinus"><span class="std std-ref">Cosinus Waves</span></a></li>
+</ul>
+<p class="functag"><a class="reference internal" href="sources/tags/goniometric.html#tags-goniometric"><span class="std std-ref">Goniometric</span></a></p>
+<ul class="funcitem simple">
+<li><a class="reference internal" href="sources/generators/steps.html#generators-steps"><span class="std std-ref">Steps</span></a></li>
+</ul>
+<p class="functag"><a class="reference internal" href="sources/tags/steps.html#tags-steps"><span class="std std-ref">Steps</span></a></p>
+<ul class="funcitem simple">
+<li><a class="reference internal" href="sources/generators/random_steps.html#generators-random-steps"><span class="std std-ref">Random Steps</span></a></li>
+</ul>
+<p class="functag"><a class="reference internal" href="sources/tags/steps.html#tags-steps"><span class="std std-ref">Steps</span></a>, <a class="reference internal" href="sources/tags/random.html#tags-random"><span class="std std-ref">Random</span></a></p>
+<ul class="funcitem simple">
+<li><a class="reference internal" href="sources/generators/mackey_glass.html#generators-mackey-glass"><span class="std std-ref">Mackey-Glass Discrete Equation</span></a></li>
+</ul>
+<p class="functag"><a class="reference internal" href="sources/tags/chaotic.html#tags-chaotic"><span class="std std-ref">Chaotic</span></a></p>
+<ul class="funcitem simple">
+<li><a class="reference internal" href="sources/generators/white_noise.html#generators-white-noise"><span class="std std-ref">White Noise Generator</span></a></li>
+</ul>
+<p class="functag"><a class="reference internal" href="sources/tags/random.html#tags-random"><span class="std std-ref">Random</span></a></p>
+<ul class="funcitem simple">
+<li><a class="reference internal" href="sources/generators/autoregressive_model.html#generators-autoregressive-model"><span class="std std-ref">Autoregressive Model</span></a></li>
+</ul>
+<p class="functag"><a class="reference internal" href="sources/tags/autoregressive.html#tags-autoregressive"><span class="std std-ref">Autoregressive</span></a></p>
+<ul class="funcitem simple">
+<li><a class="reference internal" href="sources/generators/logist_map.html#generators-logistic-map"><span class="std std-ref">Logistic Map</span></a></li>
+</ul>
+<p class="functag"><a class="reference internal" href="sources/tags/population_models.html#tags-population-model"><span class="std std-ref">Population Model</span></a>, <a class="reference internal" href="sources/tags/chaotic.html#tags-chaotic"><span class="std std-ref">Chaotic</span></a></p>
 </div>
 <div class="section" id="contact">
 <h2>Contact<a class="headerlink" href="#contact" title="Permalink to this headline">¶</a></h2>
@@ -127,8 +146,6 @@ this library uses <a class="reference external" href="http://www.numpy.org/">Num
       
         <p>
         <a class="uplink" href="#">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="sources/generators/autoregressive_model.html">Autoregressive Model</a>&#160;&#160;»
         </p>
 
       </div>
