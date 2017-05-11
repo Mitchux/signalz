@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>signalz.generators.cosinus &#8212; Signalz 0.4 documentation</title>
+    <title>signalz.generators.gaussian_white_noise &#8212; Signalz 0.4 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -44,7 +44,7 @@
   <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="../../../index.html">
           <span>Signalz 0.4 documentation</span></a></h1>
-        <h2 class="heading"><span>signalz.generators.cosinus</span></h2>
+        <h2 class="heading"><span>signalz.generators.gaussian_white_noise</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
       
@@ -56,58 +56,38 @@
       <div class="content">
         
         
-  <h1>Source code for signalz.generators.cosinus</h1><div class="highlight"><pre>
+  <h1>Source code for signalz.generators.gaussian_white_noise</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">.. versionadded:: 0.2</span>
+<span class="sd">.. versionadded:: 0.1</span>
+<span class="sd">.. versionchanged:: 0.4</span>
 
-<span class="sd">This function generates cosinus waves with given period, amplitude and offset.</span>
-<span class="sd">It is also possible to use delay defined in samples to crop the first wave.</span>
-
-<span class="sd">Example Usage</span>
-<span class="sd">===============</span>
-
-<span class="sd">Simple example</span>
-
-<span class="sd">.. code-block:: python</span>
-
-<span class="sd">    N = 200 # number of samples</span>
-<span class="sd">    x = signalz.cosinus(N)</span>
+<span class="sd">This function generates Gaussian white noise series. This function uses</span>
+<span class="sd">`numpy.random.normal`.</span>
 
 <span class="sd">Function Documentation</span>
 <span class="sd">======================================</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">import</span> <span class="nn">signalz</span>
-
-<div class="viewcode-block" id="cosinus"><a class="viewcode-back" href="../../../sources/generators/cosinus.html#signalz.generators.cosinus.cosinus">[docs]</a><span class="k">def</span> <span class="nf">cosinus</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="gaussian_white_noise"><a class="viewcode-back" href="../../../sources/generators/gaussian_white_noise.html#signalz.generators.gaussian_white_noise.gaussian_white_noise">[docs]</a><span class="k">def</span> <span class="nf">gaussian_white_noise</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Cosinus waves generator.</span>
+<span class="sd">    Random values with normal distribution.</span>
 
 <span class="sd">    **Args:**</span>
 <span class="sd">    </span>
 <span class="sd">    * `n` - length of the output data (int) - how many samples will be on output</span>
 <span class="sd">    </span>
 <span class="sd">    **Kwargs:**</span>
-<span class="sd">    </span>
-<span class="sd">    * `period` - length of one sinus wave period (1 / frequency)</span>
-<span class="sd">    </span>
-<span class="sd">    * `amplitude` - difference between minimal and maximal value of waves </span>
 
 <span class="sd">    * `offset` - mean value (float)</span>
 <span class="sd">         </span>
-<span class="sd">    * `delay` - how many samples should be croped from first wave (does not</span>
-<span class="sd">      influence full length of data)</span>
+<span class="sd">    * `std` - standard deviation (float)</span>
 <span class="sd">    </span>
 <span class="sd">    **Returns:**</span>
 <span class="sd">    </span>
-<span class="sd">    * vector of cosinus waves (1d array)   </span>
+<span class="sd">    * vector of values representing the noise (1d array)   </span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">delay</span> <span class="o">+=</span> <span class="n">period</span><span class="o">/</span><span class="mf">4.</span>
-    <span class="k">return</span> <span class="n">signalz</span><span class="o">.</span><span class="n">sinus</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">delay</span><span class="p">)</span></div>
-
-
-
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span></div>
 </pre></div>
 
       </div>

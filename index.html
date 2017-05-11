@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Signalz &#8212; Signalz 0.3 documentation</title>
+    <title>Signalz &#8212; Signalz 0.4 documentation</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.3',
+        VERSION:     '0.4',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,9 +25,9 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Signalz 0.3 documentation" href="#" />
+    <link rel="top" title="Signalz 0.4 documentation" href="#" />
     <meta name="description" content="Signalz - data generators in Python">
-    <meta name="keywords" content="signal, data, generator, python">
+    <meta name="keywords" content="signal, data, generator, python, model">
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -42,7 +42,7 @@
   </head>
   <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="#">
-          <span>Signalz 0.3 documentation</span></a></h1>
+          <span>Signalz 0.4 documentation</span></a></h1>
         <h2 class="heading"><span>Signalz</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
@@ -58,7 +58,7 @@
   <div class="section" id="signalz">
 <h1>Signalz<a class="headerlink" href="#signalz" title="Permalink to this headline">¶</a></h1>
 <p><em>Signalz - data generators in Python</em></p>
-<span class="target" id="module-signalz"></span><p>Current version: 0.3 (<a class="reference internal" href="sources/changelog.html#changelog"><span class="std std-ref">Changelog</span></a>)</p>
+<span class="target" id="module-signalz"></span><p>Current version: 0.4 (<a class="reference internal" href="sources/changelog.html#changelog"><span class="std std-ref">Changelog</span></a>)</p>
 <p>This library is designed to simplify testing data obtaining with Python.
 For code optimisation,
 this library uses <a class="reference external" href="http://www.numpy.org/">Numpy</a> for array operations.</p>
@@ -110,9 +110,17 @@ this library uses <a class="reference external" href="http://www.numpy.org/">Num
 </ul>
 <p class="functag"><a class="reference internal" href="sources/tags/chaotic.html#tags-chaotic"><span class="std std-ref">Chaotic</span></a></p>
 <ul class="funcitem simple">
-<li><a class="reference internal" href="sources/generators/white_noise.html#generators-white-noise"><span class="std std-ref">White Noise Generator</span></a></li>
+<li><a class="reference internal" href="sources/generators/gaussian_white_noise.html#generators-gaussian-white-noise"><span class="std std-ref">Gaussian White Noise</span></a></li>
 </ul>
-<p class="functag"><a class="reference internal" href="sources/tags/random.html#tags-random"><span class="std std-ref">Random</span></a></p>
+<p class="functag"><a class="reference internal" href="sources/tags/random.html#tags-random"><span class="std std-ref">Random</span></a>, <a class="reference internal" href="sources/tags/noise.html#tags-noise"><span class="std std-ref">Noise</span></a></p>
+<ul class="funcitem simple">
+<li><a class="reference internal" href="sources/generators/uniform_white_noise.html#generators-uniform-white-noise"><span class="std std-ref">Uniform White Noise</span></a></li>
+</ul>
+<p class="functag"><a class="reference internal" href="sources/tags/random.html#tags-random"><span class="std std-ref">Random</span></a>, <a class="reference internal" href="sources/tags/noise.html#tags-noise"><span class="std std-ref">Noise</span></a></p>
+<ul class="funcitem simple">
+<li><a class="reference internal" href="sources/generators/brownian_noise.html#generators-brownian-noise"><span class="std std-ref">Brownian Noise (Random Walk, Red Noise)</span></a></li>
+</ul>
+<p class="functag"><a class="reference internal" href="sources/tags/random.html#tags-random"><span class="std std-ref">Random</span></a>, <a class="reference internal" href="sources/tags/noise.html#tags-noise"><span class="std std-ref">Noise</span></a></p>
 <ul class="funcitem simple">
 <li><a class="reference internal" href="sources/generators/autoregressive_model.html#generators-autoregressive-model"><span class="std std-ref">Autoregressive Model</span></a></li>
 </ul>

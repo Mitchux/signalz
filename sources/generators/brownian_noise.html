@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Steps &#8212; Signalz 0.4 documentation</title>
+    <title>Brownian Noise (Random Walk, Red Noise) &#8212; Signalz 0.4 documentation</title>
     
     <link rel="stylesheet" href="../../_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -43,7 +43,7 @@
   <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="../../index.html">
           <span>Signalz 0.4 documentation</span></a></h1>
-        <h2 class="heading"><span>Steps</span></h2>
+        <h2 class="heading"><span>Brownian Noise (Random Walk, Red Noise)</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
       
@@ -55,51 +55,50 @@
       <div class="content">
         
         
-  <div class="section" id="module-signalz.generators.steps">
-<span id="steps"></span><span id="generators-steps"></span><h1>Steps<a class="headerlink" href="#module-signalz.generators.steps" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-signalz.generators.brownian_noise">
+<span id="brownian-noise-random-walk-red-noise"></span><span id="generators-brownian-noise"></span><h1>Brownian Noise (Random Walk, Red Noise)<a class="headerlink" href="#module-signalz.generators.brownian_noise" title="Permalink to this headline">¶</a></h1>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 0.2.</span></p>
+<p><span class="versionmodified">New in version 0.4.</span></p>
 </div>
-<div class="versionchanged">
-<p><span class="versionmodified">Changed in version 0.4.</span></p>
-</div>
-<p>This function generates steps according to given sequence of values and
-given width of steps. Function also can repeat given
-sequence according required number of repeats, or desired lenght of data.</p>
+<p>This function generates Brownian noise series. The noise is produced by
+integration of white noise (gaussian or uniform).</p>
+<p>This function uses
+<cite>numpy.random.normal</cite> and <cite>numpy.random.uniform</cite></p>
 <div class="section" id="example-usage">
 <h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
-<p>Usage is as simple as</p>
+<p>The following example produce 1000 samples of brownian noise starting in
+value 10 (<cite>start=10</cite>). The noise is produced by integration of white gaussian
+noise (<cite>source=&#8221;gaussian&#8221;</cite>) with standard deviation of 1 (<cite>std=1</cite>).
+To keep in noise in some reasonable range,
+it is used 10% leaky integration (<cite>leak=0.1</cite>).</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">signalz</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">signalz</span><span class="o">.</span><span class="n">steps</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>where the <cite>2</cite> stands for step width, <cite>[1, 2, 3]</cite> are values for steps and
-<cite>repeat=2</cite> make the sequence of steps repeat twice. So the returned output is</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">3</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">signalz</span><span class="o">.</span><span class="n">brownian_noise</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">leak</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;gaussian&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="function-documentation">
 <h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="signalz.generators.steps.steps">
-<code class="descclassname">signalz.generators.steps.</code><code class="descname">steps</code><span class="sig-paren">(</span><em>step_width</em>, <em>values</em>, <em>repeat=1</em>, <em>size=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/signalz/generators/steps.html#steps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#signalz.generators.steps.steps" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function generates steps from given values.</p>
+<dt id="signalz.generators.brownian_noise.brownian_noise">
+<code class="descclassname">signalz.generators.brownian_noise.</code><code class="descname">brownian_noise</code><span class="sig-paren">(</span><em>n</em>, <em>leak=0</em>, <em>start=0</em>, <em>std=1.0</em>, <em>source='gaussian'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/signalz/generators/brownian_noise.html#brownian_noise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#signalz.generators.brownian_noise.brownian_noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Random values with uniform distribution.</p>
 <p><strong>Args:</strong></p>
 <ul class="simple">
-<li><cite>step_width</cite> - desired width of every step (int)</li>
-<li><cite>values</cite> - values for steps (1d array)</li>
+<li><cite>n</cite> - length of the output data (int) - how many samples will be on output</li>
 </ul>
 <p><strong>Kwargs:</strong></p>
 <ul class="simple">
-<li><cite>repeat</cite> - number of step sequence repetions (int), this variable is used,
-if the <cite>size</cite> is not defined</li>
-<li><cite>size</cite> - size of output data in samples (int), if the <cite>size</cite> is used,
-the <cite>repeat</cite> is ignored.</li>
+<li><cite>leak</cite> - leakage during integration (float), this should prevent signal
+from wander off. Possible value is <cite>0 &lt;= leak &lt; 1</cite></li>
+<li><cite>start</cite> - offset on the start (float)</li>
+<li><cite>std</cite> - standard deviation of source white noise (float), in case of
+uniform distribution it is the difference between min and max value.</li>
+<li><cite>source</cite> - distribution of source white noise (str). Options are
+<cite>gaussian</cite> or <cite>uniform</cite></li>
 </ul>
 <p><strong>Returns:</strong></p>
 <ul class="simple">
-<li>array of values representing desired steps (1d array)</li>
+<li>vector of values representing the noise (1d array)</li>
 </ul>
 </dd></dl>
 

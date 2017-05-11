@@ -1,16 +1,14 @@
-.. _tags-random:
+.. _tags-noise:
 
-Random
+Noise
 ********************************
 
-This tag covers functions that are using pseudorandom numbers.
+This tag covers functions that models noise.
 
 :ref:`generators-gaussian_white_noise`
 
 :ref:`generators-uniform_white_noise`
 
 :ref:`generators-brownian_noise`
-
-:ref:`generators-random_steps`
 
 

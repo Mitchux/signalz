@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Logistic Map &#8212; Signalz 0.4 documentation</title>
+    <title>Gaussian White Noise &#8212; Signalz 0.4 documentation</title>
     
     <link rel="stylesheet" href="../../_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -43,7 +43,7 @@
   <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="../../index.html">
           <span>Signalz 0.4 documentation</span></a></h1>
-        <h2 class="heading"><span>Logistic Map</span></h2>
+        <h2 class="heading"><span>Gaussian White Noise</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
       
@@ -55,46 +55,34 @@
       <div class="content">
         
         
-  <div class="section" id="module-signalz.generators.logistic_map">
-<span id="logistic-map"></span><span id="generators-logistic-map"></span><h1>Logistic Map<a class="headerlink" href="#module-signalz.generators.logistic_map" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-signalz.generators.gaussian_white_noise">
+<span id="gaussian-white-noise"></span><span id="generators-gaussian-white-noise"></span><h1>Gaussian White Noise<a class="headerlink" href="#module-signalz.generators.gaussian_white_noise" title="Permalink to this headline">¶</a></h1>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 0.3.</span></p>
+<p><span class="versionmodified">New in version 0.1.</span></p>
 </div>
-<p>This function simulates logistic map equation. This logisti map is described
-by following equation</p>
-<p><span class="math">\(x(k+1) = r x(k) (1 - x(k))\)</span>,</p>
-<p>where <span class="math">\(x\)</span> is population (between 0 and 1) and <span class="math">\(x\)</span> is parameter
-denoted as value of interest.</p>
-<p>The logistic map can result in logistic behaviour for some values of <span class="math">\(r\)</span>.</p>
-<p>For more information see great page about
-<a class="reference external" href="https://en.wikipedia.org/wiki/Logistic_map">logistic map on Wikipedia</a></p>
-<div class="section" id="example-usage">
-<h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
-<p>Simple example</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># number of samples</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">signalz</span><span class="o">.</span><span class="n">logistic_map</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
+<div class="versionchanged">
+<p><span class="versionmodified">Changed in version 0.4.</span></p>
 </div>
-</div>
+<p>This function generates Gaussian white noise series. This function uses
+<cite>numpy.random.normal</cite>.</p>
 <div class="section" id="function-documentation">
 <h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="signalz.generators.logistic_map.logistic_map">
-<code class="descclassname">signalz.generators.logistic_map.</code><code class="descname">logistic_map</code><span class="sig-paren">(</span><em>n</em>, <em>r=4</em>, <em>initial=0.5</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/signalz/generators/logistic_map.html#logistic_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#signalz.generators.logistic_map.logistic_map" title="Permalink to this definition">¶</a></dt>
-<dd><p>Logist map equation</p>
+<dt id="signalz.generators.gaussian_white_noise.gaussian_white_noise">
+<code class="descclassname">signalz.generators.gaussian_white_noise.</code><code class="descname">gaussian_white_noise</code><span class="sig-paren">(</span><em>n</em>, <em>offset=0</em>, <em>std=1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/signalz/generators/gaussian_white_noise.html#gaussian_white_noise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#signalz.generators.gaussian_white_noise.gaussian_white_noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Random values with normal distribution.</p>
 <p><strong>Args:</strong></p>
 <ul class="simple">
 <li><cite>n</cite> - length of the output data (int) - how many samples will be on output</li>
 </ul>
 <p><strong>Kwargs:</strong></p>
 <ul class="simple">
-<li><cite>r</cite> - function parameter (float)</li>
-<li><cite>initial</cite> - initial value (float), default is 0.1,
-should be in range from 0 to 1</li>
+<li><cite>offset</cite> - mean value (float)</li>
+<li><cite>std</cite> - standard deviation (float)</li>
 </ul>
 <p><strong>Returns:</strong></p>
 <ul class="simple">
-<li>simulation output - vector of numbers between 0 and 1</li>
+<li>vector of values representing the noise (1d array)</li>
 </ul>
 </dd></dl>
 

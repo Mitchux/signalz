@@ -3,6 +3,16 @@
 Changelog
 ===========
 
+**Version 0.4**
+ The white noise generator was renamed to
+ :ref:`generators-gaussian_white_noise`. New generators were added:
+ :ref:`generators-uniform_white_noise`,
+ :ref:`generators-brownian_noise`.
+ Following generators were modified:
+ :ref:`generators-steps`,
+ :ref:`generators-random_steps`.
+ The modifications include bugfixes and feature improvements.
+
 **Version 0.3**
  Logistic map was added :ref:`generators-logistic_map`. Furthermore
  the documentation was upgraded.
