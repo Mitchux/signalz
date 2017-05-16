@@ -3,6 +3,10 @@
 Changelog
 ===========
 
+**Version 0.5**
+ Added :ref:`generators-levy_noise`,
+ :ref:`generators-levy_walk` and :ref:`generators-levy_flight`. 
+
 **Version 0.4**
  The white noise generator was renamed to
  :ref:`generators-gaussian_white_noise`. New generators were added:
@@ -31,6 +35,6 @@ Changelog
  :ref:`generators-autoregressive_model`,
  :ref:`generators-mackey_glass`,
  :ref:`generators-sinus` and
- :ref:`generators-white_noise`.
+ White Noise Generator (renamed to :ref:`generators-gaussian_white_noise`).
 
 

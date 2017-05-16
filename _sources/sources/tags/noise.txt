@@ -11,4 +11,6 @@ This tag covers functions that models noise.
 
 :ref:`generators-brownian_noise`
 
+:ref:`generators-levy_noise`
+
 

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Logistic Map &#8212; Signalz 0.5 documentation</title>
+    <title>Lévy Flight &#8212; Signalz 0.5 documentation</title>
     
     <link rel="stylesheet" href="../../_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -43,7 +43,7 @@
   <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="../../index.html">
           <span>Signalz 0.5 documentation</span></a></h1>
-        <h2 class="heading"><span>Logistic Map</span></h2>
+        <h2 class="heading"><span>Lévy Flight</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
       
@@ -55,46 +55,52 @@
       <div class="content">
         
         
-  <div class="section" id="module-signalz.generators.logistic_map">
-<span id="logistic-map"></span><span id="generators-logistic-map"></span><h1>Logistic Map<a class="headerlink" href="#module-signalz.generators.logistic_map" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-signalz.generators.levy_flight">
+<span id="levy-flight"></span><span id="generators-levy-flight"></span><h1>Lévy Flight<a class="headerlink" href="#module-signalz.generators.levy_flight" title="Permalink to this headline">¶</a></h1>
 <div class="versionadded">
-<p><span class="versionmodified">New in version 0.3.</span></p>
+<p><span class="versionmodified">New in version 0.5.</span></p>
 </div>
-<p>This function simulates logistic map equation. This logisti map is described
-by following equation</p>
-<p><span class="math">\(x(k+1) = r x(k) (1 - x(k))\)</span>,</p>
-<p>where <span class="math">\(x\)</span> is population (between 0 and 1) and <span class="math">\(x\)</span> is parameter
-denoted as value of interest.</p>
-<p>The logistic map can result in logistic behaviour for some values of <span class="math">\(r\)</span>.</p>
-<p>For more information see great page about
-<a class="reference external" href="https://en.wikipedia.org/wiki/Logistic_map">logistic map on Wikipedia</a></p>
+<p>This function generates Levy flight by integration of Levy
+alpha-stable distribution (also reffered just as stable distribution).</p>
+<p>The Levy distribution is defined by two parameters <span class="math">\(\alpha\)</span>
+and <span class="math">\(\beta\)</span>. The Gaussian distribution is special case of 
+Levy distribution with <span class="math">\(\alpha=2\)</span> and <span class="math">\(\beta=0\)</span>.
+In case of Gaussian distribution the Levy flight is Brownian walk.</p>
+<p>This function uses <a class="reference internal" href="levy_noise.html#generators-levy-noise"><span class="std std-ref">Lévy Noise (Skewed Stable Random Variable Generator)</span></a>.</p>
 <div class="section" id="example-usage">
 <h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
-<p>Simple example</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># number of samples</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">signalz</span><span class="o">.</span><span class="n">logistic_map</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<p>The following example produce 500 samples of Levy flight produced from
+Levy noise located (mean value) at 0 (<cite>position</cite>),
+with characteristic exponent index of 1.8 (<cite>alpha</cite>),
+skeewness of 0 (<cite>beta</cite>) and diffusion of 1. (<cite>sigma</cite>).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">signalz</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">signalz</span><span class="o">.</span><span class="n">levy_flight</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="function-documentation">
 <h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="signalz.generators.logistic_map.logistic_map">
-<code class="descclassname">signalz.generators.logistic_map.</code><code class="descname">logistic_map</code><span class="sig-paren">(</span><em>n</em>, <em>r=4</em>, <em>initial=0.5</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/signalz/generators/logistic_map.html#logistic_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#signalz.generators.logistic_map.logistic_map" title="Permalink to this definition">¶</a></dt>
-<dd><p>Logist map equation</p>
+<dt id="signalz.generators.levy_flight.levy_flight">
+<code class="descclassname">signalz.generators.levy_flight.</code><code class="descname">levy_flight</code><span class="sig-paren">(</span><em>n</em>, <em>alpha=2.0</em>, <em>beta=1.0</em>, <em>sigma=1.0</em>, <em>position=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/signalz/generators/levy_flight.html#levy_flight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#signalz.generators.levy_flight.levy_flight" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function produces Levy flight.</p>
 <p><strong>Args:</strong></p>
 <ul class="simple">
 <li><cite>n</cite> - length of the output data (int) - how many samples will be on output</li>
 </ul>
 <p><strong>Kwargs:</strong></p>
 <ul class="simple">
-<li><cite>r</cite> - function parameter (float)</li>
-<li><cite>initial</cite> - initial value (float), default is 0.1,
-should be in range from 0 to 1</li>
+<li><cite>alpha</cite> - characteristic exponent index of used Levy noise
+(float) in range <cite>0&lt;alpha&lt;2</cite></li>
+<li><cite>beta</cite> - skeewness of used Levy noise (float) in range <cite>-1&lt;beta&lt;1</cite></li>
+<li><cite>sigma</cite> - diffusion of used Levy noise (float),
+in case of gaussian distribution it is
+standard deviation</li>
+<li><cite>position</cite> - position parameter (float) of used Levy noise</li>
 </ul>
 <p><strong>Returns:</strong></p>
 <ul class="simple">
-<li>simulation output - vector of numbers between 0 and 1</li>
+<li>vector of values representing the flight (1d array)</li>
 </ul>
 </dd></dl>
 

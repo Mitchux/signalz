@@ -4,7 +4,7 @@
 
 Signalz
 ===================
-*Signalz - data generators in Python*
+*Signalz - synthetic data generators in Python*
 
 .. automodule:: signalz
 

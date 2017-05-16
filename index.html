@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Signalz &#8212; Signalz 0.4 documentation</title>
+    <title>Signalz &#8212; Signalz 0.5 documentation</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.4',
+        VERSION:     '0.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,9 +25,9 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Signalz 0.4 documentation" href="#" />
-    <meta name="description" content="Signalz - data generators in Python">
-    <meta name="keywords" content="signal, data, generator, python, model">
+    <link rel="top" title="Signalz 0.5 documentation" href="#" />
+    <meta name="description" content="Signalz - synthetic data generators in Python">
+    <meta name="keywords" content="signal, data, generator, python, artificial, synthetic">
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -42,7 +42,7 @@
   </head>
   <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="#">
-          <span>Signalz 0.4 documentation</span></a></h1>
+          <span>Signalz 0.5 documentation</span></a></h1>
         <h2 class="heading"><span>Signalz</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
@@ -57,9 +57,10 @@
         
   <div class="section" id="signalz">
 <h1>Signalz<a class="headerlink" href="#signalz" title="Permalink to this headline">¶</a></h1>
-<p><em>Signalz - data generators in Python</em></p>
-<span class="target" id="module-signalz"></span><p>Current version: 0.4 (<a class="reference internal" href="sources/changelog.html#changelog"><span class="std std-ref">Changelog</span></a>)</p>
-<p>This library is designed to simplify testing data obtaining with Python.
+<p><em>Signalz - synthetic data generators in Python</em></p>
+<span class="target" id="module-signalz"></span><p>Current version: 0.5 (<a class="reference internal" href="sources/changelog.html#changelog"><span class="std std-ref">Changelog</span></a>)</p>
+<p>This library is designed to simplify tasks of synthetic data generation
+with Python.
 For code optimisation,
 this library uses <a class="reference external" href="http://www.numpy.org/">Numpy</a> for array operations.</p>
 <div class="toctree-wrapper compound">
@@ -118,9 +119,21 @@ this library uses <a class="reference external" href="http://www.numpy.org/">Num
 </ul>
 <p class="functag"><a class="reference internal" href="sources/tags/random.html#tags-random"><span class="std std-ref">Random</span></a>, <a class="reference internal" href="sources/tags/noise.html#tags-noise"><span class="std std-ref">Noise</span></a></p>
 <ul class="funcitem simple">
+<li><a class="reference internal" href="sources/generators/levy_noise.html#generators-levy-noise"><span class="std std-ref">Lévy Noise (Skewed Stable Random Variable Generator)</span></a></li>
+</ul>
+<p class="functag"><a class="reference internal" href="sources/tags/random.html#tags-random"><span class="std std-ref">Random</span></a>, <a class="reference internal" href="sources/tags/noise.html#tags-noise"><span class="std std-ref">Noise</span></a></p>
+<ul class="funcitem simple">
 <li><a class="reference internal" href="sources/generators/brownian_noise.html#generators-brownian-noise"><span class="std std-ref">Brownian Noise (Random Walk, Red Noise)</span></a></li>
 </ul>
 <p class="functag"><a class="reference internal" href="sources/tags/random.html#tags-random"><span class="std std-ref">Random</span></a>, <a class="reference internal" href="sources/tags/noise.html#tags-noise"><span class="std std-ref">Noise</span></a></p>
+<ul class="funcitem simple">
+<li><a class="reference internal" href="sources/generators/levy_flight.html#generators-levy-flight"><span class="std std-ref">Lévy Flight</span></a></li>
+</ul>
+<p class="functag"><a class="reference internal" href="sources/tags/random.html#tags-random"><span class="std std-ref">Random</span></a></p>
+<ul class="funcitem simple">
+<li><a class="reference internal" href="sources/generators/levy_walk.html#generators-levy-walk"><span class="std std-ref">Lévy Walk</span></a></li>
+</ul>
+<p class="functag"><a class="reference internal" href="sources/tags/random.html#tags-random"><span class="std std-ref">Random</span></a></p>
 <ul class="funcitem simple">
 <li><a class="reference internal" href="sources/generators/autoregressive_model.html#generators-autoregressive-model"><span class="std std-ref">Autoregressive Model</span></a></li>
 </ul>

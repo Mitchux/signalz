@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>signalz.generators.cosinus &#8212; Signalz 0.5 documentation</title>
+    <title>signalz.generators.levy_flight &#8212; Signalz 0.5 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -44,7 +44,7 @@
   <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="../../../index.html">
           <span>Signalz 0.5 documentation</span></a></h1>
-        <h2 class="heading"><span>signalz.generators.cosinus</span></h2>
+        <h2 class="heading"><span>signalz.generators.levy_flight</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
       
@@ -56,22 +56,32 @@
       <div class="content">
         
         
-  <h1>Source code for signalz.generators.cosinus</h1><div class="highlight"><pre>
+  <h1>Source code for signalz.generators.levy_flight</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">.. versionadded:: 0.2</span>
+<span class="sd">.. versionadded:: 0.5</span>
 
-<span class="sd">This function generates cosinus waves with given period, amplitude and offset.</span>
-<span class="sd">It is also possible to use delay defined in samples to crop the first wave.</span>
+<span class="sd">This function generates Levy flight by integration of Levy</span>
+<span class="sd">alpha-stable distribution (also reffered just as stable distribution).</span>
+
+<span class="sd">The Levy distribution is defined by two parameters :math:`\\alpha`</span>
+<span class="sd">and :math:`\\beta`. The Gaussian distribution is special case of </span>
+<span class="sd">Levy distribution with :math:`\\alpha=2` and :math:`\\beta=0`.</span>
+<span class="sd">In case of Gaussian distribution the Levy flight is Brownian walk.</span>
+
+<span class="sd">This function uses :ref:`generators-levy_noise`.</span>
 
 <span class="sd">Example Usage</span>
-<span class="sd">===============</span>
+<span class="sd">==================</span>
 
-<span class="sd">Simple example</span>
+<span class="sd">The following example produce 500 samples of Levy flight produced from</span>
+<span class="sd">Levy noise located (mean value) at 0 (`position`),</span>
+<span class="sd">with characteristic exponent index of 1.8 (`alpha`),</span>
+<span class="sd">skeewness of 0 (`beta`) and diffusion of 1. (`sigma`).</span>
 
 <span class="sd">.. code-block:: python</span>
 
-<span class="sd">    N = 200 # number of samples</span>
-<span class="sd">    x = signalz.cosinus(N)</span>
+<span class="sd">    import signalz</span>
+<span class="sd">    x = signalz.levy_flight(500, alpha=1.8, beta=0., sigma=1., position=0)</span>
 
 <span class="sd">Function Documentation</span>
 <span class="sd">======================================</span>
@@ -80,33 +90,35 @@
 
 <span class="kn">import</span> <span class="nn">signalz</span>
 
-<div class="viewcode-block" id="cosinus"><a class="viewcode-back" href="../../../sources/generators/cosinus.html#signalz.generators.cosinus.cosinus">[docs]</a><span class="k">def</span> <span class="nf">cosinus</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="levy_flight"><a class="viewcode-back" href="../../../sources/generators/levy_flight.html#signalz.generators.levy_flight.levy_flight">[docs]</a><span class="k">def</span> <span class="nf">levy_flight</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">2.</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="mf">0.</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Cosinus waves generator.</span>
-
+<span class="sd">    This function produces Levy flight.</span>
+<span class="sd">    </span>
 <span class="sd">    **Args:**</span>
 <span class="sd">    </span>
 <span class="sd">    * `n` - length of the output data (int) - how many samples will be on output</span>
 <span class="sd">    </span>
 <span class="sd">    **Kwargs:**</span>
 <span class="sd">    </span>
-<span class="sd">    * `period` - length of one sinus wave period (1 / frequency)</span>
-<span class="sd">    </span>
-<span class="sd">    * `amplitude` - difference between minimal and maximal value of waves </span>
+<span class="sd">    * `alpha` - characteristic exponent index of used Levy noise</span>
+<span class="sd">      (float) in range `0&lt;alpha&lt;2`</span>
+<span class="sd">      </span>
+<span class="sd">    * `beta` - skeewness of used Levy noise (float) in range `-1&lt;beta&lt;1`</span>
 
-<span class="sd">    * `offset` - mean value (float)</span>
-<span class="sd">         </span>
-<span class="sd">    * `delay` - how many samples should be croped from first wave (does not</span>
-<span class="sd">      influence full length of data)</span>
+<span class="sd">    * `sigma` - diffusion of used Levy noise (float),</span>
+<span class="sd">      in case of gaussian distribution it is</span>
+<span class="sd">      standard deviation</span>
+
+<span class="sd">    * `position` - position parameter (float) of used Levy noise</span>
 <span class="sd">    </span>
 <span class="sd">    **Returns:**</span>
 <span class="sd">    </span>
-<span class="sd">    * vector of cosinus waves (1d array)   </span>
+<span class="sd">    * vector of values representing the flight (1d array)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">delay</span> <span class="o">+=</span> <span class="n">period</span><span class="o">/</span><span class="mf">4.</span>
-    <span class="k">return</span> <span class="n">signalz</span><span class="o">.</span><span class="n">sinus</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">delay</span><span class="p">)</span></div>
-
-
+    <span class="n">x</span> <span class="o">=</span> <span class="n">signalz</span><span class="o">.</span><span class="n">levy_noise</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  </div>
+        
+        
 
 </pre></div>
 
