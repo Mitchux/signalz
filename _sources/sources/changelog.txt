@@ -3,6 +3,9 @@
 Changelog
 ===========
 
+**Version 0.6**
+ Added :ref:`generators-ecgsyn` - generator of synthetic ECG.
+
 **Version 0.5**
  Added :ref:`generators-levy_noise`,
  :ref:`generators-levy_walk` and :ref:`generators-levy_flight`. 

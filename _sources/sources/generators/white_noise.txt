@@ -1,8 +1,0 @@
-.. _generators-white_noise:
-
-White Noise Generator
-********************************
-
-.. automodule:: signalz.generators.white_noise
-    :members:
-    :show-inheritance:
