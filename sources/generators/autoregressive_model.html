@@ -1,31 +1,22 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Autoregressive Model &#8212; Signalz 0.6 documentation</title>
-    
+    <title>Autoregressive Model &#8212; Signalz 0.7 documentation</title>
     <link rel="stylesheet" href="../../_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '0.6',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Signalz 0.6 documentation" href="../../index.html" />
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <meta name="description" content="Signalz - synthetic data generators in Python">
     <meta name="keywords" content="signal, data, generator, python, artificial, synthetic">
     <script>
@@ -39,10 +30,9 @@
 
     </script>
 
-  </head>
-  <body role="document">
+  </head><body>
       <div class="header" role="banner"><h1 class="heading"><a href="../../index.html">
-          <span>Signalz 0.6 documentation</span></a></h1>
+          <span>Signalz 0.7 documentation</span></a></h1>
         <h2 class="heading"><span>Autoregressive Model</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
@@ -65,16 +55,16 @@
 </div>
 <p>This function generates data as autoregressive model (AR model) according to
 following equation</p>
-<p><span class="math">\(x(k) = c + \sum\limits_{n=1}^{\infty} a_{i} x(k-i) + v(k)\)</span>,</p>
-<p>where <span class="math">\(k\)</span> is discrete time index, <span class="math">\(c\)</span> is an constant, 
-<span class="math">\(a_i\)</span> is parameters of model and <span class="math">\(v(k)\)</span> is noise.</p>
+<p><span class="math notranslate nohighlight">\(x(k) = c + \sum\limits_{n=1}^{\infty} a_{i} x(k-i) + v(k)\)</span>,</p>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is discrete time index, <span class="math notranslate nohighlight">\(c\)</span> is an constant, 
+<span class="math notranslate nohighlight">\(a_i\)</span> is parameters of model and <span class="math notranslate nohighlight">\(v(k)\)</span> is noise.</p>
 <p>The AR model is also known as stochastic difference equation.</p>
 <div class="section" id="example-usage">
 <h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
 <p>Let us consider AR model as follows</p>
-<p><span class="math">\(x(k) = 1.79 x(k-1) - 1.85 x(k-2) + 1.27 x(k-3) - 0.41 x(k-4) + v(k)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(x(k) = 1.79 x(k-1) - 1.85 x(k-2) + 1.27 x(k-3) - 0.41 x(k-4) + v(k)\)</span>.</p>
 <p>This AR can be simulated with following code (1000 samples).</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">signalz</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">signalz</span>
 
 <span class="c1"># AR model parameters</span>
 <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.41</span><span class="p">,</span> <span class="mf">1.27</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.85</span><span class="p">,</span> <span class="mf">1.79</span><span class="p">]</span>
@@ -88,7 +78,7 @@ following equation</p>
 </div>
 <p>The next example shows, how to introduce parameter changes during the data
 generation.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">signalz</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">signalz</span>
 
 <span class="c1"># number of samples</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>
@@ -124,10 +114,10 @@ every row represents parameters for one time sample.</li>
 <p><strong>Kwargs:</strong></p>
 <ul class="simple">
 <li><cite>const</cite> - constant of the model (float), default is 0</li>
-<li><cite>noise</cite> - model input (str or 1d array), default is &#8220;white&#8221;,
+<li><cite>noise</cite> - model input (str or 1d array), default is “white”,
 possible options are:<ul>
-<li><cite>&#8220;white&#8221;</cite> - input noise has zero mean value and unit standard deviation</li>
-<li><cite>&#8220;none&#8221;</cite> - input noise are zeros</li>
+<li><cite>“white”</cite> - input noise has zero mean value and unit standard deviation</li>
+<li><cite>“none”</cite> - input noise are zeros</li>
 <li>manually created array of inputs of length <cite>n</cite></li>
 </ul>
 </li>
@@ -153,8 +143,8 @@ possible options are:<ul>
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2017, Matous C.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+        &#169; Copyright 2016-2018, Matous C.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
   </body>
 </html>

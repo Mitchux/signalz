@@ -1,31 +1,22 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Lévy Noise (Skewed Stable Random Variable Generator) &#8212; Signalz 0.6 documentation</title>
-    
+    <title>Lévy Noise (Skewed Stable Random Variable Generator) &#8212; Signalz 0.7 documentation</title>
     <link rel="stylesheet" href="../../_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '0.6',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Signalz 0.6 documentation" href="../../index.html" />
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <meta name="description" content="Signalz - synthetic data generators in Python">
     <meta name="keywords" content="signal, data, generator, python, artificial, synthetic">
     <script>
@@ -39,10 +30,9 @@
 
     </script>
 
-  </head>
-  <body role="document">
+  </head><body>
       <div class="header" role="banner"><h1 class="heading"><a href="../../index.html">
-          <span>Signalz 0.6 documentation</span></a></h1>
+          <span>Signalz 0.7 documentation</span></a></h1>
         <h2 class="heading"><span>Lévy Noise (Skewed Stable Random Variable Generator)</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
@@ -62,9 +52,9 @@
 </div>
 <p>This function generates random variable with Levy alpha-stable distribution
 (also reffered just as stable distribution).</p>
-<p>The Levy distribution is defined by two parameters <span class="math">\(\alpha\)</span>
-and <span class="math">\(\beta\)</span>. The Gaussian distribution is special case of 
-Levy distribution with <span class="math">\(\alpha=2\)</span> and <span class="math">\(\beta=0\)</span>.</p>
+<p>The Levy distribution is defined by two parameters <span class="math notranslate nohighlight">\(\alpha\)</span>
+and <span class="math notranslate nohighlight">\(\beta\)</span>. The Gaussian distribution is special case of 
+Levy distribution with <span class="math notranslate nohighlight">\(\alpha=2\)</span> and <span class="math notranslate nohighlight">\(\beta=0\)</span>.</p>
 <div class="section" id="notes-about-implementation">
 <h2>Notes about Implementation<a class="headerlink" href="#notes-about-implementation" title="Permalink to this headline">¶</a></h2>
 <p>The implemented algorithm is known as Chambers-Mallows-Stuck method
@@ -77,7 +67,7 @@ are obtained with <cite>numpy.random.exponentinal</cite> and <cite>numpy.random.
 <p>The following example produce 1000 samples of Levy noise located (mean value)
 at -2 (<cite>position</cite>), with characteristic exponent index of 1.5 (<cite>alpha</cite>),
 skeewness of 1 (<cite>beta</cite>) and diffusion of 1. (<cite>sigma</cite>).</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">signalz</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">signalz</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">signalz</span><span class="o">.</span><span class="n">levy_noise</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">position</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -130,8 +120,8 @@ standard deviation</li>
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2017, Matous C.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+        &#169; Copyright 2016-2018, Matous C.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
   </body>
 </html>
